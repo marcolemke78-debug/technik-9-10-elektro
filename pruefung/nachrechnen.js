@@ -18,7 +18,8 @@ fs.readdirSync(jsDir).filter(f => /^lessons-.*\.js$/.test(f)).forEach(f => {
 const RECHNUNGEN = {
   'Berechne R.': () => 9 / (30 / 1000),                                   // L3: 300 Ω
   'Welche Spannung liegt an R<sub>2</sub>?': () => 200 * 9 / (100 + 200), // L4: 6 V
-  'Außenlampe mit 60 Ω': () => 12 / 40 + 12 / 120 + 12 / 60,              // L5: 0,6 A
+  'grüne LED (2 V) mit R<sub>V3</sub> = 1 kΩ': () => ((12 - 2) / 500 + (12 - 3) / 900 + (12 - 2) / 1000) * 1000, // L5: 40 mA
+  'Drei LEDs (je 2 V, 20 mA)': () => (9 - 3 * 2) / 0.02,                // L4: 150 Ω
   'an einer 6-V-Batterie': () => (6 - 2) / 0.02,                          // L6: 200 Ω
   'Berechne den Basisstrom': () => Math.round(8.3 / 10000 * 1000 * 100) / 100, // L7: 0,83 mA
   'Der LDR hat 2 kΩ': () => 2000 * 9 / (10000 + 2000)                    // L8: 1,5 V
@@ -33,7 +34,7 @@ const LUECKEN = {
   'Der letzte Schritt fehlt.<br>': [k(7 / 0.02)],
   '(40 Ω und 80 Ω an 12 V)': [k(80 * 12 / 120)],
   'R<sub>3</sub> = 50 Ω an U = 10 V': [k(100), k(10 / 100 * 1000), k(20 * 0.1), k(30 * 0.1), k(50 * 0.1)],
-  'Die letzten zwei Schritte fehlen.': [k(0.3 + 0.1), k(12 / 0.4)],
+  'Die letzten zwei Schritte fehlen.': [k(((12 - 2) / 500 + (12 - 3) / 900) * 1000), k((12 - 3) / 900 * 1000)],
   'R<sub>2</sub> = 30 Ω liegen parallel an U = 6 V': [k(6 / 60 * 1000), k(6 / 30 * 1000), k(300), k(6 / 0.3)],
   'Rechne den LED-Strom nach.': [k(9 - 2), k(Math.round(7 / 390 * 1000))]
 };

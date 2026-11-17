@@ -226,7 +226,7 @@ window.LESSON_DATA = (window.LESSON_DATA || []).concat([
         <h3>Das EVA-Prinzip</h3>
         <table class="info-table">
           <tr><th>Eingabe (E)</th><th>Verarbeitung (V)</th><th>Ausgabe (A)</th></tr>
-          <tr><td>Sensor nimmt ein Signal auf: LDR, NTC, Taster</td><td>Spannungsteiler und Transistor mit Basiswiderstand werten aus</td><td>LED mit Vorwiderstand, Lampe, Summer, Lüfter</td></tr>
+          <tr><td>Sensor nimmt ein Signal auf: LDR, NTC, Taster</td><td>Spannungsteiler und Transistor mit Basiswiderstand werten aus</td><td>LED mit Vorwiderstand, Summer, Lüfter</td></tr>
         </table>
         <div class="analogy-box"><strong>Wie dein Körper:</strong> Die Haut spürt Kälte (Eingabe), das Gehirn entscheidet &bdquo;zu kalt&ldquo; (Verarbeitung), du bekommst Gänsehaut und ziehst eine Jacke an (Ausgabe).</div>
         <div class="warning-box"><strong>Typischer Fehler:</strong> Nur auf den Sensor schauen und die Lage vergessen. Ein LDR allein sagt nicht, ob es eine Hell- oder Dunkelschaltung ist. Entscheidend ist, ob er <strong>oben oder unten</strong> sitzt.</div>
@@ -236,9 +236,9 @@ window.LESSON_DATA = (window.LESSON_DATA || []).concat([
       title: 'Rätsel: Welche Schaltung ist das?',
       steps: [
         { label: 'Schaltplan', html: PIC('04b_sensorschaltung_raetsel.png', 'Bauteil A oben, Bauteil B unten, Mittelpunkt an der Basis') + '<p>Bauteil A ist ein LDR, Bauteil B ein fester Widerstand.</p>' },
-        { label: '1. Wer sitzt unten?', html: '<p>Unten (am Minuspol) sitzt <strong>Bauteil B</strong>, der feste Widerstand. Die Basis bekommt also die Spannung von B.</p>' },
-        { label: '2. Was passiert bei Helligkeit?', html: '<p>Der LDR (oben) wird klein. Am LDR fällt wenig Spannung ab, an B viel. Die Basis bekommt über 0,7 V, der Transistor leitet.</p>' },
-        { label: '3. Ergebnis', html: '<p>Die LED leuchtet bei Helligkeit: <strong>Hellschaltung</strong>.</p>' }
+        { label: 'Wer sitzt unten?', html: '<p>Unten (am Minuspol) sitzt <strong>Bauteil B</strong>, der feste Widerstand. Die Basis bekommt also die Spannung von B.</p>' },
+        { label: 'Was passiert bei Helligkeit?', html: '<p>Der LDR (oben) wird klein. Am LDR fällt wenig Spannung ab, an B viel. Die Basis bekommt über 0,7 V, der Transistor leitet.</p>' },
+        { label: 'Ergebnis', html: '<p>Die LED leuchtet bei Helligkeit: <strong>Hellschaltung</strong>.</p>' }
       ]
     },
     exercises: [

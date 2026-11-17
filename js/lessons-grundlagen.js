@@ -128,9 +128,9 @@ window.LESSON_DATA = (window.LESSON_DATA || []).concat([
     example: {
       title: 'Einen Schaltplan lesen',
       steps: [
-        { label: 'Schritt 1: Quelle suchen', html: IMG('led-9v.svg', 'Batterie, Vorwiderstand und LED in Reihe') + '<p>Links siehst du die Batterie (9 V). Von hier startet der Strom am Pluspol (langer Strich).</p>' },
-        { label: 'Schritt 2: Bauteile der Reihe nach', html: '<p>Oben auf der Leitung: zuerst ein <strong>Rechteck</strong> = Widerstand R<sub>v</sub>, dann das <strong>Dreieck mit Pfeilen</strong> = LED.</p>' },
-        { label: 'Schritt 3: Weg des Stroms', html: '<p>Es gibt keine Abzweigung (kein dicker Punkt). Der Strom fließt also durch den Widerstand, durch die LED und zurück zur Batterie. Das ist eine <strong>Reihenschaltung</strong>.</p>' }
+        { label: 'Quelle suchen', html: IMG('led-9v.svg', 'Batterie, Vorwiderstand und LED in Reihe') + '<p>Links siehst du die Batterie (9 V). Von hier startet der Strom am Pluspol (langer Strich).</p>' },
+        { label: 'Bauteile der Reihe nach', html: '<p>Oben auf der Leitung: zuerst ein <strong>Rechteck</strong> = Widerstand R<sub>v</sub>, dann das <strong>Dreieck mit Pfeilen</strong> = LED.</p>' },
+        { label: 'Weg des Stroms', html: '<p>Es gibt keine Abzweigung (kein dicker Punkt). Der Strom fließt also durch den Widerstand, durch die LED und zurück zur Batterie. Das ist eine <strong>Reihenschaltung</strong>.</p>' }
       ]
     },
     exercises: [
@@ -207,9 +207,9 @@ window.LESSON_DATA = (window.LESSON_DATA || []).concat([
       title: 'Musterbeispiel: Widerstand gesucht',
       steps: [
         { label: 'Aufgabe', html: '<p>An einem Widerstand liegen <strong>6 V</strong> an, es fließen <strong>0,2 A</strong>. Wie groß ist R?</p>' },
-        { label: '1. Formel', html: '<p>R ist gesucht. Finger auf R im Dreieck: U steht über I. <br><strong>R = U / I</strong></p>' },
-        { label: '2. Einsetzen mit Einheiten', html: '<p><strong>R = 6 V / 0,2 A</strong><br>Warum? Die Einheiten zeigen dir, ob du richtig eingesetzt hast: V geteilt durch A ergibt Ω.</p>' },
-        { label: '3. Ergebnis mit Einheit', html: '<p><strong>R = 30 Ω</strong></p>' },
+        { label: 'Formel', html: '<p>R ist gesucht. Finger auf R im Dreieck: U steht über I. <br><strong>R = U / I</strong></p>' },
+        { label: 'Einsetzen mit Einheiten', html: '<p><strong>R = 6 V / 0,2 A</strong><br>Warum? Die Einheiten zeigen dir, ob du richtig eingesetzt hast: V geteilt durch A ergibt Ω.</p>' },
+        { label: 'Ergebnis mit Einheit', html: '<p><strong>R = 30 Ω</strong></p>' },
         { label: 'Zweites Beispiel mit mA', html: '<p>U = 9 V, I = 30 mA, gesucht R.<br>Umrechnen: 30 mA = 0,03 A<br>R = U / I = 9 V / 0,03 A = <strong>300 Ω</strong></p>' }
       ]
     },
@@ -284,15 +284,18 @@ window.LESSON_DATA = (window.LESSON_DATA || []).concat([
         </table>
         <div class="tip-box"><strong>Rechenweg:</strong> 1. R<sub>ges</sub> addieren &nbsp; 2. I = U / R<sub>ges</sub> &nbsp; 3. Teilspannungen U<sub>1</sub> = R<sub>1</sub> · I usw. &nbsp; 4. Kontrolle: Teilspannungen zusammen = Gesamtspannung</div>
         <div class="warning-box"><strong>Typischer Fehler:</strong> Mit 12 V an jedem Widerstand rechnen. In der Reihe bekommt jedes Bauteil nur einen <strong>Teil</strong> der Spannung. Der größere Widerstand bekommt mehr.</div>
-        <div class="why-context"><strong>Warum ist das wichtig?</strong> Vorwiderstand und LED sind eine Reihenschaltung. Und der Spannungsteiler in jeder Sensorschaltung ist auch eine.</div>`
+        <h3>Reihenschaltung mit LEDs: die Lichterkette</h3>
+        ${IMG('reihe-lichterkette.svg', 'Vorwiderstand und drei LEDs in Reihe an 9 V')}
+        <p>Drei LEDs und ein Vorwiderstand hängen hintereinander. Durch alle fließt <strong>derselbe Strom</strong>, und die 9 V teilen sich auf: Jede LED nimmt sich ihre 2 V, den Rest bekommt der Vorwiderstand.</p>
+        <div class="why-context"><strong>Warum ist das wichtig?</strong> Vorwiderstand und LED sind immer eine Reihenschaltung. Und der Spannungsteiler in jeder Sensorschaltung ist auch eine.</div>`
     },
     example: {
       title: 'Musterbeispiel: R1 = 40 Ω, R2 = 80 Ω an 12 V',
       steps: [
-        { label: '1. Gesamtwiderstand', html: '<p>In Reihe wird addiert:<br>R<sub>ges</sub> = R<sub>1</sub> + R<sub>2</sub> = 40 Ω + 80 Ω = <strong>120 Ω</strong></p>' },
-        { label: '2. Strom', html: '<p>I = U / R<sub>ges</sub> = 12 V / 120 Ω = <strong>0,1 A = 100 mA</strong><br>Warum nur einmal rechnen? In Reihe ist der Strom überall gleich.</p>' },
-        { label: '3. Teilspannungen', html: '<p>U<sub>1</sub> = R<sub>1</sub> · I = 40 Ω · 0,1 A = <strong>4 V</strong><br>U<sub>2</sub> = R<sub>2</sub> · I = 80 Ω · 0,1 A = <strong>8 V</strong></p>' },
-        { label: '4. Kontrolle', html: '<p>4 V + 8 V = 12 V ✓ Die Teilspannungen ergeben zusammen die Batteriespannung.</p>' }
+        { label: 'Gesamtwiderstand', html: '<p>In Reihe wird addiert:<br>R<sub>ges</sub> = R<sub>1</sub> + R<sub>2</sub> = 40 Ω + 80 Ω = <strong>120 Ω</strong></p>' },
+        { label: 'Strom', html: '<p>I = U / R<sub>ges</sub> = 12 V / 120 Ω = <strong>0,1 A = 100 mA</strong><br>Warum nur einmal rechnen? In Reihe ist der Strom überall gleich.</p>' },
+        { label: 'Teilspannungen', html: '<p>U<sub>1</sub> = R<sub>1</sub> · I = 40 Ω · 0,1 A = <strong>4 V</strong><br>U<sub>2</sub> = R<sub>2</sub> · I = 80 Ω · 0,1 A = <strong>8 V</strong></p>' },
+        { label: 'Kontrolle', html: '<p>4 V + 8 V = 12 V ✓ Die Teilspannungen ergeben zusammen die Batteriespannung.</p>' }
       ]
     },
     exercises: [
@@ -326,14 +329,22 @@ window.LESSON_DATA = (window.LESSON_DATA || []).concat([
       },
       {
         type: 'multiple-choice',
-        question: 'Drei Lampen sind in Reihe geschaltet. Eine Lampe geht kaputt. Was passiert?',
-        options: ['Alle Lampen gehen aus.', 'Die beiden anderen leuchten weiter.', 'Die beiden anderen leuchten heller.', 'Nur die Lampe daneben geht aus.'],
+        question: 'In der Lichterkette (Vorwiderstand und drei LEDs in Reihe) geht eine LED kaputt. Was passiert?',
+        options: ['Alle LEDs gehen aus.', 'Die beiden anderen leuchten weiter.', 'Die beiden anderen leuchten heller.', 'Nur die LED daneben geht aus.'],
         correct: 0,
         wrongExplanations: {
           1: 'Das gilt für die Parallelschaltung. In der Reihe gibt es nur einen Stromweg, und der ist jetzt unterbrochen.',
           2: 'Es fließt gar kein Strom mehr, weil der einzige Weg unterbrochen ist.',
           3: 'In Reihe hängen alle an demselben Weg. Ist er unterbrochen, sind alle aus.'
         }
+      },
+      {
+        type: 'number',
+        question: 'Lichterkette: Drei LEDs (je 2 V, 20 mA) und ein Vorwiderstand sind in Reihe an 9 V angeschlossen. Berechne den Vorwiderstand R<sub>V</sub>.<br>' + IMG('reihe-lichterkette.svg', 'Vorwiderstand und drei LEDs in Reihe an 9 V'),
+        answer: 150,
+        unit: 'Ω',
+        hint: 'In Reihe teilt sich die Spannung auf: Erst ausrechnen, wie viel Spannung die drei LEDs zusammen brauchen. Der Rest liegt am Vorwiderstand.',
+        solution: 'U<sub>LEDs</sub> = 3 · 2 V = 6 V<br>U<sub>R</sub> = 9 V − 6 V = 3 V<br>I = 20 mA = 0,02 A (in Reihe überall gleich)<br>R<sub>V</sub> = U<sub>R</sub> / I = 3 V / 0,02 A = <strong>150 Ω</strong>'
       },
       {
         type: 'multiple-choice',
@@ -357,39 +368,41 @@ window.LESSON_DATA = (window.LESSON_DATA || []).concat([
     explanation: {
       html: `
         <p>Bei der <strong>Parallelschaltung</strong> liegen die Bauteile <strong>nebeneinander</strong>. Der Strom hat mehrere Wege (Zweige). An den Abzweigungen (Knotenpunkten) steht ein dicker Punkt.</p>
-        ${IMG('parallel-wohnmobil.svg', 'Deckenlampe 40 Ohm und Leselampe 120 Ohm parallel an 12 V')}
+        ${IMG('parallel-led.svg', 'Zwei Zweige parallel an 12 V: rote LED mit 500 Ohm und weiße LED mit 900 Ohm')}
+        <p>Im Bild hat jeder Zweig seine eigene LED mit eigenem <strong>Vorwiderstand</strong>. Innerhalb eines Zweigs sind LED und Vorwiderstand in Reihe, die beiden Zweige liegen parallel.</p>
         <div class="analogy-box"><strong>Wie eine Straße, die sich in mehrere Spuren teilt:</strong> Die Autos verteilen sich auf die Spuren und kommen danach wieder zusammen. Mehr Spuren = mehr Autos kommen durch. Darum wird der Gesamtwiderstand kleiner.</div>
         <table class="info-table">
           <tr><th>Größe</th><th>Regel</th></tr>
           <tr><td>Spannung</td><td><strong>an jedem Zweig gleich</strong>: U = U<sub>1</sub> = U<sub>2</sub></td></tr>
           <tr><td>Stromstärke</td><td><strong>teilt sich auf</strong>: I<sub>ges</sub> = I<sub>1</sub> + I<sub>2</sub></td></tr>
-          <tr><td>Widerstand</td><td>1/R<sub>ges</sub> = 1/R<sub>1</sub> + 1/R<sub>2</sub>. R<sub>ges</sub> ist <strong>kleiner als der kleinste</strong> Einzelwiderstand.</td></tr>
+          <tr><td>Widerstand (nur Widerstände)</td><td>1/R<sub>ges</sub> = 1/R<sub>1</sub> + 1/R<sub>2</sub>. R<sub>ges</sub> ist <strong>kleiner als der kleinste</strong> Einzelwiderstand.</td></tr>
           <tr><td>Ein Bauteil kaputt</td><td>Die anderen Zweige <strong>laufen weiter</strong></td></tr>
         </table>
-        <div class="tip-box"><strong>Einfacher Rechenweg für R<sub>ges</sub>:</strong> Erst alle Teilströme ausrechnen, addieren zu I<sub>ges</sub>, dann R<sub>ges</sub> = U / I<sub>ges</sub>.</div>
+        <div class="tip-box"><strong>Einfacher Rechenweg für R<sub>ges</sub>:</strong> Erst alle Teilströme ausrechnen, addieren zu I<sub>ges</sub>, dann R<sub>ges</sub> = U / I<sub>ges</sub>. Beispiel: 40 Ω und 120 Ω parallel an 12 V: 0,3 A + 0,1 A = 0,4 A, also R<sub>ges</sub> = 12 V / 0,4 A = 30 Ω.</div>
         <div class="merke">Was in der Reihe gleich bleibt, teilt sich parallel auf, und umgekehrt.</div>
         <div class="warning-box"><strong>Typischer Fehler:</strong> Parallele Widerstände einfach addieren. 40 Ω parallel zu 120 Ω sind <strong>nicht</strong> 160 Ω, sondern 30 Ω.</div>
         <div class="why-context"><strong>Warum ist das wichtig?</strong> Alle Steckdosen in deiner Wohnung sind parallel geschaltet. Darum bekommt jedes Gerät 230 V, und darum darf man eine Mehrfachsteckdose nicht beliebig vollstecken.</div>`
     },
     example: {
-      title: 'Musterbeispiel: Wohnmobil (40 Ω und 120 Ω an 12 V)',
+      title: 'Musterbeispiel: Zwei LED-Leuchten im Wohnmobil (12 V)',
       steps: [
-        { label: '1. Spannung', html: '<p>Parallel liegt an jedem Zweig die volle Spannung: U<sub>1</sub> = U<sub>2</sub> = <strong>12 V</strong></p>' },
-        { label: '2. Teilströme', html: '<p>I<sub>1</sub> = U / R<sub>1</sub> = 12 V / 40 Ω = <strong>0,3 A</strong><br>I<sub>2</sub> = U / R<sub>2</sub> = 12 V / 120 Ω = <strong>0,1 A</strong></p>' },
-        { label: '3. Gesamtstrom', html: '<p>I<sub>ges</sub> = I<sub>1</sub> + I<sub>2</sub> = 0,3 A + 0,1 A = <strong>0,4 A</strong></p>' },
-        { label: '4. Gesamtwiderstand', html: '<p>R<sub>ges</sub> = U / I<sub>ges</sub> = 12 V / 0,4 A = <strong>30 Ω</strong><br>Kontrolle: 30 Ω ist kleiner als 40 Ω ✓</p>' }
+        { label: 'Aufgabe', html: IMG('parallel-led.svg', 'Zwei Zweige parallel an 12 V: rote LED mit 500 Ohm und weiße LED mit 900 Ohm') + '<p>Zweig 1: rote LED (2 V) mit R<sub>V1</sub> = 500 Ω. Zweig 2: weiße LED (3 V) mit R<sub>V2</sub> = 900 Ω. Wie viel Strom liefert die Batterie?</p>' },
+        { label: 'Spannung', html: '<p>Parallel liegt an jedem Zweig die volle Spannung: <strong>12 V</strong> pro Zweig.<br>Warum? Jeder Zweig hängt direkt an der Batterie.</p>' },
+        { label: 'Teilströme', html: '<p>In jedem Zweig wie beim Vorwiderstand rechnen:<br>Zweig 1: U<sub>R1</sub> = 12 V − 2 V = 10 V, I<sub>1</sub> = 10 V / 500 Ω = <strong>0,02 A = 20 mA</strong><br>Zweig 2: U<sub>R2</sub> = 12 V − 3 V = 9 V, I<sub>2</sub> = 9 V / 900 Ω = <strong>0,01 A = 10 mA</strong></p>' },
+        { label: 'Gesamtstrom', html: '<p>I<sub>ges</sub> = I<sub>1</sub> + I<sub>2</sub> = 20 mA + 10 mA = <strong>30 mA</strong></p>' },
+        { label: 'Eine LED kaputt', html: '<p>Geht die rote LED kaputt, ist nur Zweig 1 unterbrochen. Die weiße LED leuchtet weiter, die Batterie liefert nur noch <strong>10 mA</strong>.</p>' }
       ]
     },
     exercises: [
       {
         type: 'fill-in-blank',
-        question: 'Gleiche Schaltung wie im Beispiel. Die letzten zwei Schritte fehlen.',
-        text: 'I<sub>1</sub> = 0,3 A, I<sub>2</sub> = 0,1 A. &nbsp; I<sub>ges</sub> = {{blank}} A &nbsp; R<sub>ges</sub> = 12 V / I<sub>ges</sub> = {{blank}} Ω',
+        question: 'Gleiche Schaltung wie im Beispiel (zwei LED-Zweige an 12 V). Die letzten zwei Schritte fehlen.',
+        text: 'I<sub>1</sub> = 20 mA, I<sub>2</sub> = 10 mA. &nbsp; I<sub>ges</sub> = {{blank}} mA. &nbsp; Die rote LED geht kaputt: I<sub>ges</sub> = {{blank}} mA',
         blanks: [
-          { correct: '0,4', alternatives: ['0.4', '0,40'] },
-          { correct: '30' }
+          { correct: '30' },
+          { correct: '10' }
         ],
-        explanation: 'Ströme addieren: 0,3 + 0,1 = 0,4 A. Dann 12 V / 0,4 A = 30 Ω.'
+        explanation: 'Ströme addieren: 20 mA + 10 mA = 30 mA. Fällt Zweig 1 weg, fließt nur noch der Strom von Zweig 2: 10 mA.'
       },
       {
         type: 'fill-in-blank',
@@ -405,11 +418,11 @@ window.LESSON_DATA = (window.LESSON_DATA || []).concat([
       },
       {
         type: 'number',
-        question: 'Im Wohnmobil (12 V) kommt zur Deckenlampe (40 Ω) und Leselampe (120 Ω) noch eine Außenlampe mit 60 Ω parallel dazu. Wie groß ist jetzt der Gesamtstrom I<sub>ges</sub>?',
-        answer: 0.6,
-        unit: 'A',
-        hint: 'Der neue Zweig bekommt auch 12 V. I<sub>3</sub> = U / R<sub>3</sub>, dann alle drei Ströme addieren.',
-        solution: 'I<sub>3</sub> = 12 V / 60 Ω = 0,2 A<br>I<sub>ges</sub> = 0,3 A + 0,1 A + 0,2 A = <strong>0,6 A</strong><br>Damit R<sub>ges</sub> = 12 V / 0,6 A = 20 Ω, also noch kleiner als vorher.'
+        question: 'Zu den beiden LED-Zweigen (20 mA und 10 mA) kommt ein dritter Zweig dazu: grüne LED (2 V) mit R<sub>V3</sub> = 1 kΩ. Wie groß ist jetzt der Gesamtstrom I<sub>ges</sub>?<br>' + IMG('parallel-led-3.svg', 'Drei LED-Zweige parallel an 12 V'),
+        answer: 40,
+        unit: 'mA',
+        hint: 'Der neue Zweig bekommt auch 12 V. Erst U<sub>R3</sub> = 12 V − 2 V, dann I<sub>3</sub> = U<sub>R3</sub> / R<sub>V3</sub> (1 kΩ = 1000 Ω), dann alle drei Ströme addieren.',
+        solution: 'U<sub>R3</sub> = 12 V − 2 V = 10 V<br>I<sub>3</sub> = 10 V / 1000 Ω = 0,01 A = 10 mA<br>I<sub>ges</sub> = 20 mA + 10 mA + 10 mA = <strong>40 mA</strong><br>Jeder neue Zweig lässt mehr Strom aus der Batterie fließen.'
       },
       {
         type: 'multiple-choice',
@@ -468,9 +481,9 @@ window.LESSON_DATA = (window.LESSON_DATA || []).concat([
       title: 'Musterbeispiel: Nachtlicht am USB-Anschluss',
       steps: [
         { label: 'Aufgabe', html: IMG('led-usb.svg', 'USB 5 V, Vorwiderstand und LED 3 V, 20 mA') + '<p>U<sub>ges</sub> = 5 V, weiße LED: U<sub>LED</sub> = 3 V, I = 20 mA. Wie groß muss R<sub>V</sub> sein?</p>' },
-        { label: '1. Spannung am Vorwiderstand', html: '<p>In Reihe teilt sich die Spannung auf:<br>U<sub>R</sub> = 5 V − 3 V = <strong>2 V</strong></p>' },
-        { label: '2. Strom umrechnen', html: '<p>I = 20 mA = <strong>0,02 A</strong></p>' },
-        { label: '3. Vorwiderstand', html: '<p>R<sub>V</sub> = U<sub>R</sub> / I = 2 V / 0,02 A = <strong>100 Ω</strong><br>Kontrolle: 100 Ω · 0,02 A = 2 V ✓</p>' }
+        { label: 'Spannung am Vorwiderstand', html: '<p>In Reihe teilt sich die Spannung auf:<br>U<sub>R</sub> = 5 V − 3 V = <strong>2 V</strong></p>' },
+        { label: 'Strom umrechnen', html: '<p>I = 20 mA = <strong>0,02 A</strong></p>' },
+        { label: 'Vorwiderstand', html: '<p>R<sub>V</sub> = U<sub>R</sub> / I = 2 V / 0,02 A = <strong>100 Ω</strong><br>Kontrolle: 100 Ω · 0,02 A = 2 V ✓</p>' }
       ]
     },
     exercises: [
