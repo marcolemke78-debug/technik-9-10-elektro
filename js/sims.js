@@ -45,13 +45,16 @@ const Sims = {
       const rBottom = mode === 'dunkel' ? rLdr : R3;
       const uBottom = U * rBottom / (rTop + rBottom);
       const on = uBottom > UBE;
-      el.querySelector('.s-hell').textContent = rLdr >= 100000 ? 'dunkel' : rLdr >= 5000 ? 'dämmrig' : rLdr >= 843 ? 'hell' : 'sehr hell';
+      // Beschriftung an die Schaltschwellen gekoppelt: hell = Dunkelschaltung aus, dunkel = Hellschaltung aus
+      const rDarkLimit = R3 * (U - UBE) / UBE;   // ≈ 118,6 kΩ
+      const rBrightLimit = R3 * UBE / (U - UBE); // ≈ 843 Ω
+      el.querySelector('.s-hell').textContent = rLdr >= rDarkLimit ? 'dunkel' : rLdr > rBrightLimit ? 'dämmrig' : 'hell';
       el.querySelector('.s-glow').setAttribute('opacity', on ? '0.55' : '0');
       el.querySelector('.s-bulb').setAttribute('fill', on ? '#FACC15' : '#E5E7EB');
       el.querySelector('.s-out').innerHTML =
         'Widerstand LDR: <strong>' + this.ohm(rLdr) + '</strong><br>'
         + 'Unten liegt: ' + (mode === 'dunkel' ? 'LDR' : 'R₃ = 10 kΩ') + '<br>'
-        + 'Spannung unten (an der Basis): <strong>' + Exercises.fmt(uBottom, 2) + ' V</strong> '
+        + 'Spannung unten (an der Basis): <strong>' + Exercises.fmt(uBottom, Math.abs(uBottom - UBE) < 0.01 ? 3 : 2) + ' V</strong> '
         + (on ? '&gt; 0,7 V' : '&lt; 0,7 V') + '<br>'
         + 'Transistor: <strong>' + (on ? 'leitet' : 'sperrt') + '</strong> → LED <strong>' + (on ? 'an' : 'aus') + '</strong>';
     };

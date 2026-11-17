@@ -175,7 +175,7 @@ window.LESSON_DATA = (window.LESSON_DATA || []).concat([
         text: 'Bei der Batterie ist der lange dünne Strich der {{blank}}pol. Die Lampe zeichnet man als Kreis mit {{blank}}.',
         blanks: [
           { correct: 'Plus', alternatives: ['plus', '+'] },
-          { correct: 'Kreuz', alternatives: ['einem Kreuz', 'x'] }
+          { correct: 'Kreuz', alternatives: ['einem Kreuz', 'ein Kreuz', 'x'] }
         ],
         explanation: 'Merkhilfe: Das Pluszeichen hat einen Strich mehr als das Minus. Der längere Strich ist Plus.'
       }
@@ -219,8 +219,8 @@ window.LESSON_DATA = (window.LESSON_DATA || []).concat([
         question: 'Ergänze mit dem Formeldreieck.',
         text: 'I gesucht: I = U {{blank}} R. &nbsp; U gesucht: U = R {{blank}} I. &nbsp; R gesucht: R = {{blank}} / I',
         blanks: [
-          { correct: '/', alternatives: [':', 'geteilt durch', '÷'] },
-          { correct: '·', alternatives: ['*', 'x', 'mal', '•'] },
+          { correct: '/', alternatives: [':', 'geteilt durch', 'durch', 'geteilt', '÷'] },
+          { correct: '·', alternatives: ['*', 'x', 'mal', '•', '×', '⋅', '∙'] },
           { correct: 'U' }
         ],
         explanation: 'Stehen zwei Größen nebeneinander, wird malgenommen. Steht eine über der anderen, wird geteilt.'
@@ -511,7 +511,7 @@ window.LESSON_DATA = (window.LESSON_DATA || []).concat([
         question: 'Eine grüne LED (U<sub>LED</sub> = 2 V, I = 20 mA) soll an einer 6-V-Batterie leuchten. Berechne den Vorwiderstand R<sub>V</sub>.',
         answer: 200,
         unit: 'Ω',
-        hint: 'Erst U<sub>R</sub> = U<sub>ges</sub> − U<sub>LED</sub>, dann 20 mA in A umrechnen, dann R<sub>V</sub> = U<sub>R</sub> / I.',
+        hint: 'Erst U<sub>R</sub> = U<sub>ges</sub> − U<sub>LED</sub>, dann 20 mA in A umrechnen, dann R<sub>V</sub> = U<sub>R</sub> / I. Gib den berechneten Wert ein, nicht den Normwert.',
         solution: 'U<sub>R</sub> = 6 V − 2 V = 4 V<br>I = 20 mA = 0,02 A<br>R<sub>V</sub> = 4 V / 0,02 A = <strong>200 Ω</strong><br>200 Ω gibt es nicht als Normwert, also den nächstgrößeren nehmen: 220 Ω.'
       },
       {

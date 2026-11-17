@@ -65,7 +65,7 @@ window.LESSON_DATA = (window.LESSON_DATA || []).concat([
         blanks: [
           { correct: 'Basisstrom', alternatives: ['Steuerstrom'] },
           { correct: '0,7', alternatives: ['0.7'] },
-          { correct: 'leitend', alternatives: ['leitfähig'] },
+          { correct: 'leitend', alternatives: ['leitfähig', 'durchgeschaltet'] },
           { correct: 'Kollektorstrom', alternatives: ['Arbeitsstrom'] },
           { correct: 'sperrt' }
         ],
@@ -164,7 +164,7 @@ window.LESSON_DATA = (window.LESSON_DATA || []).concat([
         blanks: [
           { correct: 'klein', alternatives: ['niedrig', 'gering'] },
           { correct: 'groß', alternatives: ['gross', 'hoch'] },
-          { correct: 'größeren', alternatives: ['groesseren', 'grösseren'] },
+          { correct: 'größeren', alternatives: ['groesseren', 'grösseren', 'höheren'] },
           { correct: 'unteren' }
         ],
         explanation: 'LDR: hell = klein, dunkel = groß. Größerer Widerstand = mehr Spannung. Die Basis hängt am Mittelpunkt und bekommt die Spannung des unteren Bauteils.'
@@ -270,7 +270,7 @@ window.LESSON_DATA = (window.LESSON_DATA || []).concat([
           { left: 'Straßenlaterne soll bei Dunkelheit angehen', right: 'Dunkelschaltung: LDR unten' },
           { left: 'PC-Lüfter soll bei Hitze anspringen', right: 'Warmschaltung: NTC oben' },
           { left: 'Warn-LED im Gewächshaus bei Frost', right: 'Kaltschaltung: NTC unten' },
-          { left: 'Solarlampe soll nur bei Sonne ein Signal geben', right: 'Hellschaltung: LDR oben' }
+          { left: 'Rollladen soll bei praller Sonne herunterfahren', right: 'Hellschaltung: LDR oben' }
         ],
         explanation: 'Das Bauteil, das bei der gewünschten Bedingung groß wird, gehört nach unten.'
       },

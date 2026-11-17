@@ -54,7 +54,7 @@ const Trainer = {
     const answers = [item.back].concat(item.alt || []).map(x => this.norm(x, item.formula));
     if (answers.indexOf(t) !== -1) return 'right';
     // Bei Formeln ist ein anderes Zeichen kein Tippfehler, sondern falsch: kein "fast richtig"
-    if (!item.formula && answers.some(a => a.length >= 4 && this.distance(t, a) === 1)) return 'almost';
+    if (!item.formula && /[a-zäöüß]/.test(t) && answers.some(a => a.length >= 4 && this.distance(t, a) === 1)) return 'almost';
     return 'wrong';
   },
 

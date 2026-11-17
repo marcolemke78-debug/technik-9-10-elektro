@@ -29,7 +29,12 @@ const Progress = {
       const raw = localStorage.getItem(this.key());
       const data = raw ? JSON.parse(raw) : null;
       // fehlende Felder auffüllen, damit ein beschädigter Stand die App nicht lahmlegt
-      if (data && data.version === this.VERSION) return Object.assign(this.createDefault(), data);
+      if (data && data.version === this.VERSION) {
+        const d = Object.assign(this.createDefault(), data);
+        const def = this.createDefault();
+        ['lessons', 'cards', 'newToday'].forEach(k => { if (!d[k] || typeof d[k] !== 'object') d[k] = def[k]; });
+        return d;
+      }
     } catch (e) {
       if (this._mem) return this._mem;
     }
