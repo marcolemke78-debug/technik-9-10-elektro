@@ -1,0 +1,20 @@
+/* Gemeinsames Druckbild für Lernplan, Probe-Arbeit und Vokabelblatt (A4). */
+@page { size: A4; margin: 12mm 13mm; }
+* { box-sizing: border-box; }
+body { font-family: "Helvetica Neue", Arial, sans-serif; color: #1a1a1a; font-size: 10.5pt; line-height: 1.4; margin: 0; }
+@media screen { body { max-width: 210mm; margin: 0 auto; padding: 10mm; } }
+.kopf { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2.5px solid #1d4ed8; padding-bottom: 1.5mm; margin-bottom: 3mm; }
+.kopf h1 { font-size: 16pt; color: #1d4ed8; margin: 0; }
+.kopf .meta { font-size: 9pt; color: #555; text-align: right; }
+.intro { font-size: 9.5pt; color: #444; margin: 0 0 3mm; }
+h2 { font-size: 12pt; color: #1d4ed8; margin: 5mm 0 2mm; border-bottom: 1.2px solid #1d4ed8; padding-bottom: 0.6mm; break-after: avoid; }
+table { width: 100%; border-collapse: collapse; }
+th, td { border: 0.6px solid #bbb; padding: 1.6mm 2mm; text-align: left; vertical-align: top; }
+th { background: #eef2fb; font-size: 9.5pt; }
+tr { break-inside: avoid; }
+.box { border: 0.6px solid #ccc; border-radius: 3px; padding: 2mm 3mm; margin: 2mm 0; break-inside: avoid; }
+.box-tip { background: #fffbeb; border-color: #f1d58a; }
+.kaestchen { display: inline-block; width: 4.5mm; height: 4.5mm; border: 1px solid #555; border-radius: 1px; }
+.zeile { border-bottom: 1px solid #888; height: 9mm; }
+.seitenumbruch { break-before: page; }
+.fuss { margin-top: 3mm; font-size: 7.5pt; color: #999; text-align: center; }

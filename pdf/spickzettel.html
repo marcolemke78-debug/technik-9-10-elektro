@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spickzettel – Grundschaltungen und Transistor</title>
+<style>
+  /* Genau 1 Seite A4, zweispaltig. Prüfen: tools/druck_check.sh */
+  @page { size: A4; margin: 9mm 10mm; }
+  * { box-sizing: border-box; }
+  body { font-family: "Helvetica Neue", Arial, sans-serif; color: #1a1a1a; font-size: 9.3pt; line-height: 1.33; margin: 0; }
+  .kopf { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2.5px solid #1d4ed8; padding-bottom: 1.5mm; margin-bottom: 2mm; }
+  .kopf h1 { font-size: 15pt; color: #1d4ed8; margin: 0; }
+  .kopf .meta { font-size: 8.5pt; color: #555; text-align: right; }
+  .intro { font-size: 8.5pt; color: #555; margin: 0 0 3mm; }
+  .cols { column-count: 2; column-gap: 6mm; }
+  .thema { break-inside: avoid; margin-bottom: 2.6mm; }
+  h2 { font-size: 10.5pt; color: #1d4ed8; margin: 0 0 1.2mm; border-bottom: 1.2px solid #1d4ed8; padding-bottom: 0.6mm; }
+  .box { border: 0.6px solid #ccc; border-radius: 3px; padding: 1.3mm 2mm; margin: 0 0 1.3mm; }
+  .regel { background: #f3f6ff; border-color: #c3d3f7; }
+  .beispiel { background: #fff; }
+  .falle { background: #fef2f2; border-color: #f3b4b4; }
+  .box b.lbl { display: inline-block; min-width: 15mm; }
+  table { width: 100%; border-collapse: collapse; font-size: 8.6pt; }
+  th, td { border: 0.5px solid #bbb; padding: 0.7mm 1.4mm; text-align: left; vertical-align: top; }
+  th { background: #eef2fb; }
+  .formel { text-align: center; font-weight: 700; font-size: 11pt; margin: 1mm 0; }
+  .fuss { margin-top: 2mm; font-size: 7.5pt; color: #999; text-align: center; }
+  @media screen { body { max-width: 210mm; margin: 0 auto; padding: 10mm; } }
+</style>
+</head>
+<body>
+<div class="kopf">
+  <h1>Spickzettel Grundschaltungen und Transistor</h1>
+  <div class="meta">Technik · Klasse 9/10</div>
+</div>
+<p class="intro">Lesen, zudecken, aufsagen. Drucken: Teilen → Drucken (iPad) bzw. Cmd + P.</p>
+
+<div class="cols">
+  <div class="thema">
+    <h2>1 · Grundgrößen</h2>
+    <table>
+      <tr><th>Größe</th><th>Zeichen</th><th>Einheit</th><th>Wasser</th></tr>
+      <tr><td>Spannung</td><td>U</td><td>Volt (V)</td><td>Druck der Pumpe</td></tr>
+      <tr><td>Stromstärke</td><td>I</td><td>Ampere (A)</td><td>Wassermenge/s</td></tr>
+      <tr><td>Widerstand</td><td>R</td><td>Ohm (Ω)</td><td>Engstelle</td></tr>
+    </table>
+    <div class="box falle"><b class="lbl">Falle</b> 1 A = 1000 mA. Vor dem Rechnen <strong>immer in A</strong>: 20 mA = 0,02 A.</div>
+  </div>
+  <div class="thema">
+    <h2>2 · Ohmsches Gesetz</h2>
+    <p class="formel">U = R · I &nbsp;&nbsp; R = U / I &nbsp;&nbsp; I = U / R</p>
+    <div class="box regel"><b class="lbl">3 Schritte</b> Formel · Einsetzen mit Einheiten · Ergebnis mit Einheit</div>
+  </div>
+  <div class="thema">
+    <h2>3 · Reihe oder parallel?</h2>
+    <table>
+      <tr><th></th><th>Reihe</th><th>Parallel</th></tr>
+      <tr><td>Strom</td><td>überall gleich</td><td>Iges = I₁ + I₂</td></tr>
+      <tr><td>Spannung</td><td>Uges = U₁ + U₂</td><td>überall gleich</td></tr>
+      <tr><td>Widerstand</td><td>Rges = R₁ + R₂ (größer)</td><td>kleiner als der kleinste; Rges = U / Iges</td></tr>
+      <tr><td>Teil kaputt</td><td>alles aus</td><td>Rest läuft weiter</td></tr>
+    </table>
+    <div class="box regel"><b class="lbl">Reihe</b> Am <strong>größeren</strong> Widerstand fällt <strong>mehr</strong> Spannung ab.</div>
+  </div>
+  <div class="thema">
+    <h2>4 · Messgeräte</h2>
+    <div class="box regel"><b class="lbl">A</b> Amperemeter <strong>in Reihe</strong> (Achtung, in die Leitung rein), sehr kleiner Innenwiderstand.<br><b class="lbl">V</b> Voltmeter <strong>parallel</strong> (Verbinden, nebendran), sehr großer Innenwiderstand.</div>
+  </div>
+  <div class="thema">
+    <h2>5 · LED-Vorwiderstand</h2>
+    <p class="formel">U<sub>R</sub> = U<sub>ges</sub> − U<sub>LED</sub> &nbsp;&nbsp; R<sub>V</sub> = U<sub>R</sub> / I</p>
+    <div class="box beispiel"><b class="lbl">Beispiel</b> 9 V, rote LED 2 V, 20 mA: 7 V / 0,02 A = 350 Ω → Normwert <strong>390 Ω</strong> (nächstgrößerer)</div>
+  </div>
+  <div class="thema">
+    <h2>6 · Transistor als Schalter</h2>
+    <div class="box regel"><b class="lbl">npn</b> <strong>B</strong>asis: kleiner Steuerstrom rein · <strong>C</strong> Kollektor: großer Arbeitsstrom rein · <strong>E</strong>mitter: beide raus</div>
+    <div class="box regel"><b class="lbl">Regel</b> Ab ca. <strong>0,7 V</strong> zwischen B und E <strong>leitet</strong> er, sonst <strong>sperrt</strong> er. Kleiner Steuerstrom schaltet großen Arbeitsstrom. R₂ begrenzt den Basisstrom.</div>
+    <div class="box beispiel"><b class="lbl">Relais</b> gleich: Steuer- und Arbeitsstromkreis. Anders: Transistor ohne bewegte Teile, leise, schnell.</div>
+  </div>
+  <div class="thema">
+    <h2>7 · Sensorschaltungen</h2>
+    <div class="box regel"><b class="lbl">Sensoren</b> LDR: hell klein, dunkel groß. NTC: warm klein, kalt groß.</div>
+    <div class="box regel"><b class="lbl">Regel</b> Die Basis bekommt die Spannung des <strong>unteren</strong> Bauteils.</div>
+    <table>
+      <tr><td>Dunkelschaltung</td><td>R₃ oben, <strong>LDR unten</strong></td></tr>
+      <tr><td>Hellschaltung</td><td><strong>LDR oben</strong>, R₃ unten</td></tr>
+      <tr><td>Warmschaltung</td><td><strong>NTC oben</strong>, R₃ unten</td></tr>
+      <tr><td>Kaltschaltung</td><td>R₃ oben, <strong>NTC unten</strong></td></tr>
+    </table>
+    <div class="box falle"><b class="lbl">Falle</b> Der Sensor liegt nicht im LED-Stromkreis. Er steuert nur die Basisspannung.</div>
+  </div>
+  <div class="thema">
+    <h2>8 · EVA</h2>
+    <div class="box beispiel"><b class="lbl">E</b> Sensor (LDR, NTC, Taster) · <b>V</b> Spannungsteiler + Transistor · <b>A</b> LED mit R₁, Lüfter, Summer</div>
+  </div>
+</div>
+<p class="fuss">Technik 9/10 · Lern-App: alle Lektionen</p>
+</body>
+</html>

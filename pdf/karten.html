@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lernblatt und Faltkarten</title>
+<link rel="stylesheet" href="druck.css">
+<style>
+  .lern td.v { font-weight: 600; width: 30%; }
+  .lern td.d { width: 30%; }
+  .lern td.b { font-size: 9pt; color: #444; }
+  .lern td.c { width: 16mm; text-align: center; white-space: nowrap; }
+  /* Faltkarten: links Vorderseite, rechts Rückseite. In der Mitte falten, dann ausschneiden. */
+  .falt { width: 100%; border-collapse: collapse; }
+  .falt td { width: 50%; height: 24mm; border: 0.8px dashed #888; text-align: center; vertical-align: middle; font-size: 11pt; padding: 2mm 4mm; }
+  .falt td.hinten { border-left: 1.5px solid #1d4ed8; }
+  .falt td small { display: block; font-size: 8.5pt; color: #555; margin-top: 1mm; }
+  .stapel { display: flex; gap: 3mm; margin: 2mm 0 3mm; }
+  .stapel div { flex: 1; border: 1px solid #ccc; border-radius: 3px; padding: 2mm; font-size: 9.5pt; }
+</style>
+</head>
+<body>
+<!-- Füllt sich selbst aus js/cards.js. Nichts von Hand eintragen. -->
+<div class="kopf"><h1 id="titel">Lernblatt</h1><div class="meta" id="meta"></div></div>
+<p class="intro" id="intro"></p>
+<table class="lern"><thead id="lern-kopf"></thead><tbody id="lern"></tbody></table>
+
+<div class="seitenumbruch"></div>
+<div class="kopf"><h1>Faltkarten</h1><div class="meta">In der Mitte (blaue Linie) falten, dann an den gestrichelten Linien ausschneiden.</div></div>
+<div class="stapel">
+  <div><strong>Stapel 1: morgen wieder</strong><br>Neue Karten und alles, was falsch war.</div>
+  <div><strong>Stapel 2: in 3 Tagen</strong><br>Was heute richtig war.</div>
+  <div><strong>Stapel 3: sitzt</strong><br>An zwei Tagen hintereinander richtig.</div>
+</div>
+<p class="intro">Vorderseite ansehen, Antwort <strong>aufschreiben oder laut sagen</strong>, umdrehen. Falsch? Zurück auf Stapel 1, egal wo die Karte vorher lag.</p>
+<table class="falt"><tbody id="falt"></tbody></table>
+
+<script src="../js/ka-daten.js"></script>
+<script src="../js/cards.js"></script>
+<script>
+  const sprache = !!CARDS.speak;
+  document.getElementById('titel').textContent = sprache ? 'Vokabel-Lernblatt' : 'Begriffe-Lernblatt';
+  document.getElementById('meta').textContent = KA.title;
+  document.getElementById('intro').innerHTML = sprache
+    ? 'Deck die rechte Spalte ab und schreib das englische Wort auf. Ein Häkchen erst, wenn es an <strong>zwei verschiedenen Tagen</strong> geklappt hat.'
+    : 'Deck die rechte Spalte ab und erklär den Begriff in eigenen Worten. Ein Häkchen erst, wenn es an <strong>zwei verschiedenen Tagen</strong> geklappt hat.';
+  document.getElementById('lern-kopf').innerHTML = '<tr><th>' + (sprache ? 'Deutsch' : 'Frage') + '</th><th>' + (sprache ? 'Englisch' : 'Antwort') + '</th>'
+    + (sprache ? '<th>Beispiel</th>' : '') + '<th>sitzt?</th></tr>';
+  document.getElementById('lern').innerHTML = CARDS.items.map(it =>
+    '<tr><td class="d">' + it.front + '</td><td class="v">' + it.back + '</td>'
+    + (sprache ? '<td class="b">' + (it.example || '') + '</td>' : '')
+    + '<td class="c"><span class="kaestchen"></span> <span class="kaestchen"></span></td></tr>'
+  ).join('');
+  document.getElementById('falt').innerHTML = CARDS.items.map(it =>
+    '<tr><td>' + it.front + '</td><td class="hinten">' + it.back + (it.example ? '<small>' + it.example + '</small>' : '') + '</td></tr>'
+  ).join('');
+</script>
+</body>
+</html>
