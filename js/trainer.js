@@ -28,7 +28,7 @@ const Trainer = {
     let t = Exercises._norm(String(s).replace(/<[^>]+>/g, '')).replace(/[.!?]+$/, '');
     if (CARDS.speak && CARDS.speak.indexOf('en') === 0) t = t.replace(/^to\s+/, '');
     // Formelkarten (formula: true): Leerzeichen, Unterstriche und gleichwertige Rechenzeichen egal
-    if (formula) t = t.replace(/[\s_]/g, '').replace(/[·×x*]/g, '*').replace(/[:÷]/g, '/').replace(/[−–]/g, '-').replace(/,/g, '.');
+    if (formula) t = t.replace(/[\s_]/g, '').replace(/[·⋅•×x*]/g, '*').replace(/[:÷]/g, '/').replace(/[−–]/g, '-').replace(/,/g, '.');
     return t;
   },
 

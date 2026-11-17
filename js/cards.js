@@ -16,7 +16,7 @@ const CARDS = {
     { id: 'g02', front: 'Größe, die angibt, wie viel Strom pro Sekunde fließt (Einheit Ampere)', back: 'Stromstärke', alt: ['Strom'] },
     { id: 'g03', front: 'Größe, die den Strom bremst wie eine Engstelle im Rohr (Einheit Ohm)', back: 'Widerstand' },
     { id: 'g04', front: 'Wie viele mA sind 1 A?', back: '1000', alt: ['1000 mA', '1.000', '1 000'] },
-    { id: 'g05', front: 'Formel des Ohmschen Gesetzes, nach U aufgelöst', back: 'U = R · I', alt: ['U=R·I', 'U = R * I', 'U=R*I', 'U = R x I', 'U = R × I', 'U=R×I', 'U = RI', 'U=RI', 'U = R I', 'U = I · R', 'U=I·R', 'U = I * R', 'U=I*R', 'U = I x R', 'U = I × R'] },
+    { id: 'g05', front: 'Formel des Ohmschen Gesetzes, nach U aufgelöst', back: 'U = R · I', formula: true, alt: ['U = RI', 'U = I · R', 'U = IR'] },
     { id: 'g06', front: 'Schaltung, bei der die Bauteile hintereinander liegen und der Strom nur einen Weg hat', back: 'Reihenschaltung' },
     { id: 'g07', front: 'Schaltung, bei der die Bauteile nebeneinander liegen und der Strom mehrere Wege hat', back: 'Parallelschaltung' },
     { id: 'g08', front: 'Messgerät für die Stromstärke, wird in Reihe eingebaut', back: 'Amperemeter', alt: ['Strommessgerät'] },
